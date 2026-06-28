@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/write-or-die-icon.svg" alt="Write or Die app icon" width="96">
+  <img src="assets/write-or-die-icon.svg" alt="Write or Die app icon" width="120">
 </p>
 
 # Write or Die
