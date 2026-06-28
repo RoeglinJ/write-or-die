@@ -12,6 +12,17 @@ pip install -r requirements.txt
 python main.py
 ```
 
+## Build executable
+
+On Windows, install the build requirements and run the PyInstaller helper:
+
+```bash
+pip install -r requirements-build.txt
+python build_exe.py
+```
+
+The standalone executable is written to `dist/WriteOrDie.exe`.
+
 ## How it works
 
 1. Pick a **Mode** from the Session menu and press **Start session**.
