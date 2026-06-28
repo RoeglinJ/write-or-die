@@ -38,6 +38,7 @@ from PySide6.QtGui import (
     QFontDatabase,
     QPen,
     QKeySequence,
+    QIntValidator,
     QTextCursor,
     QTextCharFormat,
 )
@@ -48,6 +49,7 @@ from PySide6.QtWidgets import (
     QPlainTextEdit,
     QTextEdit,
     QLabel,
+    QLineEdit,
     QPushButton,
     QHBoxLayout,
     QVBoxLayout,
@@ -56,7 +58,6 @@ from PySide6.QtWidgets import (
     QFileDialog,
     QMessageBox,
     QDialog,
-    QSpinBox,
     QListWidget,
     QListWidgetItem,
     QSizePolicy,
@@ -305,6 +306,87 @@ class CounterWidget(QWidget):
 
 
 # --------------------------------------------------------------------------- #
+# Numeric input with explicit buttons for custom timing
+# --------------------------------------------------------------------------- #
+class NumericField(QWidget):
+    def __init__(self, value: int, lo: int, hi: int, suffix: str, parent=None):
+        super().__init__(parent)
+        self._value = int(value)
+        self.lo = lo
+        self.hi = hi
+
+        lay = QHBoxLayout(self)
+        lay.setContentsMargins(0, 0, 0, 0)
+        lay.setSpacing(6)
+
+        self.edit = QLineEdit(str(self._value))
+        self.edit.setObjectName("numericField")
+        self.edit.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        self.edit.setValidator(QIntValidator(lo, hi, self))
+        self.edit.setFixedWidth(72)
+        self.edit.editingFinished.connect(self._commit_text)
+        self.edit.installEventFilter(self)
+
+        self.suffix = QLabel(suffix)
+        self.suffix.setMinimumWidth(28)
+
+        self.minus = QPushButton("-")
+        self.minus.setObjectName("counterBtn")
+        self.minus.setFixedSize(26, 26)
+        self.plus = QPushButton("+")
+        self.plus.setObjectName("counterBtn")
+        self.plus.setFixedSize(26, 26)
+
+        self.minus.clicked.connect(lambda: self._step(-1))
+        self.plus.clicked.connect(lambda: self._step(1))
+
+        lay.addWidget(self.edit)
+        lay.addWidget(self.suffix)
+        lay.addWidget(self.minus)
+        lay.addWidget(self.plus)
+
+        self.setFocusProxy(self.edit)
+
+    def eventFilter(self, obj, event):
+        if obj is self.edit and event.type() == event.Type.KeyPress:
+            key = event.key()
+            if key == Qt.Key_Up:
+                self._step(1)
+                return True
+            if key == Qt.Key_Down:
+                self._step(-1)
+                return True
+            if key == Qt.Key_PageUp:
+                self._step(10)
+                return True
+            if key == Qt.Key_PageDown:
+                self._step(-10)
+                return True
+        return super().eventFilter(obj, event)
+
+    def _commit_text(self):
+        text = self.edit.text().strip()
+        if not text:
+            self.edit.setText(str(self._value))
+            return
+        self._set_value(int(text))
+
+    def _set_value(self, value: int):
+        self._value = max(self.lo, min(self.hi, int(value)))
+        self.edit.setText(str(self._value))
+
+    def _step(self, delta: int):
+        self._commit_text()
+        self._set_value(self._value + delta)
+        self.edit.setFocus(Qt.MouseFocusReason)
+        self.edit.selectAll()
+
+    def value(self) -> int:
+        self._commit_text()
+        return self._value
+
+
+# --------------------------------------------------------------------------- #
 # Toast notification
 # --------------------------------------------------------------------------- #
 class Toast(QWidget):
@@ -397,20 +479,9 @@ class CustomTimingDialog(QDialog):
         self.setWindowTitle("Custom timing")
         self.setModal(True)
 
-        self.blur = QSpinBox()
-        self.blur.setRange(1, 60)
-        self.blur.setSuffix(" s")
-        self.blur.setValue(int(blur_s))
-
-        self.delete = QSpinBox()
-        self.delete.setRange(2, 120)
-        self.delete.setSuffix(" s")
-        self.delete.setValue(int(delete_s))
-
-        self.session = QSpinBox()
-        self.session.setRange(1, 240)
-        self.session.setSuffix(" min")
-        self.session.setValue(int(session_m))
+        self.blur = NumericField(int(blur_s), 1, 60, "s")
+        self.delete = NumericField(int(delete_s), 2, 120, "s")
+        self.session = NumericField(int(session_m), 1, 240, "min")
 
         form = QFormLayout()
         form.addRow("Idle before blur:", self.blur)
@@ -1612,7 +1683,7 @@ QMainWindow, QWidget {
     color: #e8e8ea;
 }
 QMenuBar, QMenu, QLabel, QPushButton, QSpinBox, QDialog, QTreeWidget,
-QHeaderView, QToolTip {
+QHeaderView, QToolTip, QLineEdit {
     font-family: 'Segoe UI', sans-serif;
     font-size: 14px;
 }
@@ -1718,6 +1789,14 @@ QSpinBox {
     border: 1px solid #2c2c35;
     border-radius: 6px;
     padding: 4px 6px;
+}
+QLineEdit#numericField {
+    background-color: #1e1e24;
+    color: #e8e8ea;
+    border: 1px solid #2c2c35;
+    border-radius: 6px;
+    padding: 4px 8px;
+    selection-background-color: #3b82f6;
 }
 QDialog { background-color: #16161a; }
 """
