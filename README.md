@@ -5,6 +5,10 @@ keep typing — if you stop, the text blurs; stay idle too long and *everything 
 deleted*. Survive until the session timer ends and your text is auto-copied to
 the clipboard.
 
+## Disclaimer
+
+This project is 100% vibe coded. There should be no expectations of maintenance.
+
 ## Run
 
 ```bash
@@ -12,16 +16,28 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## Build executable
+## Build desktop apps
 
-On Windows, install the build requirements and run the PyInstaller helper:
+Install the build requirements first:
 
 ```bash
 pip install -r requirements-build.txt
-python build_exe.py
 ```
 
-The standalone executable is written to `dist/WriteOrDie.exe`.
+PyInstaller does not cross-compile. Run the build on the OS you want to target:
+
+```bash
+# Windows: dist/WriteOrDie.exe
+python build_app.py --target windows
+
+# macOS: dist/WriteOrDie.app
+python build_app.py --target macos
+
+# Debian-based Linux: dist/WriteOrDie plus write-or-die_0.1.0_amd64.deb
+python build_app.py --target linux
+```
+
+`python build_exe.py` remains as a Windows-only shortcut.
 
 ## How it works
 
