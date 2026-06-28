@@ -1,0 +1,16 @@
+__pycache__/
+.claude/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+build/
+dist/
+*.spec
+
+.venv/
+venv/
+env/
+
+*.log
