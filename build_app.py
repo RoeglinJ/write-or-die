@@ -13,6 +13,7 @@ import platform
 import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 from PySide6.QtWidgets import QApplication
@@ -142,50 +143,56 @@ def build_deb(exe: Path, icon_path: Path) -> Path | None:
     if not dpkg_deb:
         print("dpkg-deb not found; skipping .deb package")
         return None
-    package_root = BUILD_DIR / "deb" / "write-or-die"
-    if package_root.exists():
-        shutil.rmtree(package_root)
-    (package_root / "DEBIAN").mkdir(parents=True)
-    (package_root / "usr" / "bin").mkdir(parents=True)
-    (package_root / "usr" / "share" / "applications").mkdir(parents=True)
-    icon_dir = package_root / "usr" / "share" / "icons" / "hicolor" / "256x256" / "apps"
-    icon_dir.mkdir(parents=True)
+    with tempfile.TemporaryDirectory(prefix="write-or-die-deb-") as staging_tmp:
+        package_root = Path(staging_tmp) / "write-or-die"
+        (package_root / "DEBIAN").mkdir(parents=True)
+        (package_root / "usr" / "bin").mkdir(parents=True)
+        (package_root / "usr" / "share" / "applications").mkdir(parents=True)
+        icon_dir = package_root / "usr" / "share" / "icons" / "hicolor" / "256x256" / "apps"
+        icon_dir.mkdir(parents=True)
 
-    shutil.copy2(exe, package_root / "usr" / "bin" / "write-or-die")
-    shutil.copy2(icon_path, icon_dir / "write-or-die.png")
-    (package_root / "DEBIAN" / "control").write_text(
-        "\n".join(
-            [
-                "Package: write-or-die",
-                "Version: 0.1.0",
-                "Section: editors",
-                "Priority: optional",
-                "Architecture: amd64",
-                "Maintainer: Write or Die <noreply@example.invalid>",
-                "Description: Dangerous-writing Markdown editor",
-                "",
-            ]
-        ),
-        encoding="utf-8",
-    )
-    (package_root / "usr" / "share" / "applications" / "write-or-die.desktop").write_text(
-        "\n".join(
-            [
-                "[Desktop Entry]",
-                "Type=Application",
-                f"Name={DISPLAY_NAME}",
-                "Exec=write-or-die",
-                "Icon=write-or-die",
-                "Categories=Utility;TextEditor;",
-                "Terminal=false",
-                "",
-            ]
-        ),
-        encoding="utf-8",
-    )
-    deb = DIST_DIR / "write-or-die_0.1.0_amd64.deb"
-    DIST_DIR.mkdir(exist_ok=True)
-    subprocess.run([dpkg_deb, "--build", str(package_root), str(deb)], check=True)
+        bin_path = package_root / "usr" / "bin" / "write-or-die"
+        icon_dest = icon_dir / "write-or-die.png"
+        shutil.copy2(exe, bin_path)
+        shutil.copy2(icon_path, icon_dest)
+        bin_path.chmod(0o755)
+        icon_dest.chmod(0o644)
+        (package_root / "DEBIAN" / "control").write_text(
+            "\n".join(
+                [
+                    "Package: write-or-die",
+                    "Version: 0.1.1",
+                    "Section: editors",
+                    "Priority: optional",
+                    "Architecture: amd64",
+                    "Maintainer: Write or Die <noreply@example.invalid>",
+                    "Description: Dangerous-writing Markdown editor",
+                    "",
+                ]
+            ),
+            encoding="utf-8",
+        )
+        (package_root / "usr" / "share" / "applications" / "write-or-die.desktop").write_text(
+            "\n".join(
+                [
+                    "[Desktop Entry]",
+                    "Type=Application",
+                    f"Name={DISPLAY_NAME}",
+                    "Exec=write-or-die",
+                    "Icon=write-or-die",
+                    "Categories=Utility;TextEditor;",
+                    "Terminal=false",
+                    "",
+                ]
+            ),
+            encoding="utf-8",
+        )
+        deb = DIST_DIR / "write-or-die_0.1.1_amd64.deb"
+        DIST_DIR.mkdir(exist_ok=True)
+        subprocess.run(
+            [dpkg_deb, "--root-owner-group", "--build", str(package_root), str(deb)],
+            check=True,
+        )
     print(deb)
     return deb
 
@@ -231,3 +238,4 @@ def main_cli() -> None:
 
 if __name__ == "__main__":
     main_cli()
+

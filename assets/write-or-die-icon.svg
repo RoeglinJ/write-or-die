@@ -33,21 +33,22 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.4355469"
-     inkscape:cx="94.737415"
-     inkscape:cy="154.9932"
+     inkscape:zoom="2.0301699"
+     inkscape:cx="49.995815"
+     inkscape:cy="139.15091"
      inkscape:window-width="1680"
      inkscape:window-height="979"
      inkscape:window-x="-8"
      inkscape:window-y="619"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg1" />
+     inkscape:current-layer="g1" />
   <title
      id="title">Write or Die icon</title>
   <desc
      id="desc">A dark rounded tile with a red writing squiggle, a large fountain pen, and a yellow caution triangle with a red exclamation mark.</desc>
   <g
-     id="tile">
+     id="tile"
+     transform="matrix(1.0696599,0,0,1.0754649,-8.9164624,-9.659501)">
     <rect
        x="8"
        y="8"
@@ -58,94 +59,106 @@
        id="rect1" />
   </g>
   <g
-     id="red-squiggle"
-     transform="matrix(1.1801242,-0.568677,0.12814222,1.8955756,20.799208,240.87632)">
-    <path
-       d="M 9.0767347,-12.659795 C 30.454711,-31.880483 46.290572,7.1761629 71.147795,-4.698816 94.08473,-15.65642 103.88566,19.455853 131.26102,4.3342765"
-       fill="none"
-       stroke="#ef4444"
-       stroke-width="16.8875"
-       stroke-linecap="round"
-       stroke-linejoin="round"
-       id="path1"
-       sodipodi:nodetypes="csc" />
-  </g>
-  <g
-     id="fountain-pen"
-     transform="rotate(45,-55.235904,324.11001)">
-    <rect
-       id="barrel"
-       x="-39.688866"
-       y="-122.0861"
-       width="68.838043"
-       height="174.51501"
-       rx="28.787422"
-       fill="#c7ccd6"
-       ry="63.740784"
-       transform="matrix(0.99995176,-0.00982273,-0.00508193,0.99998709,0,0)"
-       style="stroke-width:1.02812" />
-    <rect
-       id="grip-band"
-       x="-47.977787"
-       y="-15.365833"
-       width="83.773514"
-       height="28.943367"
-       rx="30.322716"
-       fill="#9aa1ad"
-       ry="10.794197"
-       transform="matrix(0.99975562,-0.02210672,0.01616391,0.99986936,0,0)"
-       style="stroke-width:0.972206" />
-    <path
-       id="nib"
-       d="M -48.280272,5.066667 35.741497,2.976871 -4.8761905,93.414966 Z"
-       fill="#e8eaef"
-       sodipodi:nodetypes="cccc" />
-    <line
-       id="nib-slit"
-       x1="-4.8761907"
-       y1="25.414967"
-       x2="-4.8761907"
-       y2="79.414963"
-       stroke="#1e1e24"
-       stroke-width="7"
-       stroke-linecap="round" />
-    <circle
-       id="breather-hole"
-       cx="-4.8761907"
-       cy="17.414967"
-       r="9"
-       fill="#1e1e24" />
-  </g>
-  <g
      id="caution-badge"
-     transform="matrix(1.115732,0,0,1.115732,-22.896532,-0.33450049)">
+     transform="matrix(2.0043001,0,0,1.7590208,-88.082549,-36.279786)">
     <g
        id="g6"
        transform="matrix(1.3509805,0,0,1.3509805,-177.8217,-181.70054)">
-      <path
-         id="caution-triangle"
-         d="m 202,156 36,70 h -72 z"
-         fill="#facc15"
-         stroke="#1e1e24"
-         stroke-width="8"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         style="stroke:#595959;stroke-width:12;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
-      <line
-         id="exclamation-stem"
-         x1="202"
-         y1="177"
-         x2="202"
-         y2="203"
-         stroke="#dc2626"
-         stroke-width="8"
-         stroke-linecap="round" />
-      <circle
-         id="exclamation-dot"
-         cx="202"
-         cy="215"
-         r="5"
-         fill="#dc2626" />
+      <g
+         id="g1">
+        <path
+           id="caution-triangle"
+           d="m 201.81809,155.79272 36,70 h -72 z"
+           fill="#facc15"
+           stroke="#1e1e24"
+           stroke-width="8"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           style="fill:#ffffff;fill-opacity:1;stroke:#ef4343;stroke-width:9.00388952;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+        <line
+           id="exclamation-stem"
+           x1="201.81808"
+           y1="180.45404"
+           x2="201.81808"
+           y2="205.37424"
+           stroke="#dc2626"
+           stroke-width="8"
+           stroke-linecap="round"
+           style="fill:none;fill-opacity:1;stroke:#ef4343;stroke-width:5.68133;stroke-dasharray:none;stroke-opacity:1" />
+        <ellipse
+           id="exclamation-dot"
+           cx="201.81808"
+           cy="215.1226"
+           fill="#dc2626"
+           style="fill:#ef4343;fill-opacity:1;stroke:none;stroke-width:0.769419;stroke-dasharray:none;stroke-opacity:1"
+           rx="3.4796612"
+           ry="4.2789464" />
+      </g>
     </g>
+  </g>
+  <g
+     id="red-squiggle"
+     transform="matrix(1.7781236,-0.69159237,-0.31894147,2.9422514,5.709711,303.94752)"
+     inkscape:transform-center-x="25.017911"
+     inkscape:transform-center-y="-22.741967">
+    <path
+       d="m 1.267902,-18.979053 c 27.545621,-19.560588 25.405823,15.2117109 49.357277,-0.983542 15.836794,-10.708366 22.079316,20.40795737 49.188632,0.07616"
+       fill="none"
+       stroke="#ef4444"
+       stroke-width="13.1889"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       id="path1"
+       sodipodi:nodetypes="csc"
+       style="stroke:#f1d242;stroke-opacity:1" />
+  </g>
+  <g
+     id="fountain-pen"
+     transform="matrix(0.6526643,0.73511075,-0.6526805,0.7066939,234.07618,163.5412)">
+    <rect
+       id="barrel"
+       x="-58.660187"
+       y="-174.35742"
+       width="91.842583"
+       height="232.82074"
+       rx="38.407703"
+       fill="#c7ccd6"
+       ry="85.036674"
+       transform="matrix(0.9998671,-0.01630308,-0.01156393,0.99993314,0,0)"
+       style="stroke-width:1.37166" />
+    <rect
+       id="grip-band"
+       x="-69.982376"
+       y="-31.931229"
+       width="112.21463"
+       height="38.73975"
+       rx="40.617279"
+       fill="#9aa1ad"
+       ry="14.44768"
+       transform="matrix(0.9994824,-0.03217042,0.00608476,0.99998149,0,0)"
+       style="stroke-width:1.30177" />
+    <path
+       id="nib"
+       d="M -70.023426,-4.2119554 42.078475,-7.7263627 -12.887075,113.26802 Z"
+       fill="#e8eaef"
+       sodipodi:nodetypes="cccc"
+       style="stroke-width:1.33396" />
+    <line
+       id="nib-slit"
+       x1="-12.22231"
+       y1="10.729554"
+       x2="-12.689321"
+       y2="82.764763"
+       stroke="#1e1e24"
+       stroke-width="9.3377"
+       stroke-linecap="round" />
+    <circle
+       id="breather-hole"
+       cx="-12.153515"
+       cy="11.806583"
+       r="12.006123"
+       fill="#1e1e24"
+       transform="matrix(0.99997899,-0.00648295,-0.00648295,0.99997899,0,0)"
+       style="stroke-width:1.33401" />
   </g>
 </svg>
