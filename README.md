@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/write-or-die-icon.svg" alt="Write or Die app icon" width="96">
+</p>
+
 # Write or Die
 
 > [!WARNING]
@@ -123,3 +127,4 @@ All View/Format settings and Custom timing values persist between sessions.
 Released under the MIT License. The license includes a broad "as is" warranty
 disclaimer and limitation of liability. In plain terms: you are responsible for
 your own use, misuse, data loss, and outcomes. See [LICENSE](LICENSE).
+
