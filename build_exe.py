@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parent
 BUILD_DIR = ROOT / "build"
 DIST_DIR = ROOT / "dist"
 ICON_PATH = BUILD_DIR / "write-or-die.ico"
+SVG_ICON_PATH = ROOT / "assets" / "write-or-die-icon.svg"
 
 
 def make_windows_icon() -> Path:
@@ -44,6 +45,8 @@ def build() -> None:
         "WriteOrDie",
         "--icon",
         str(icon_path),
+        "--add-data",
+        f"{SVG_ICON_PATH};assets",
         str(ROOT / "main.py"),
     ]
     subprocess.run(cmd, cwd=ROOT, check=True)

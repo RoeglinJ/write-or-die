@@ -1738,8 +1738,19 @@ LIGHT_STYLE = (
 )
 
 
+def resource_path(*parts: str) -> str:
+    base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base, *parts)
+
+
 def make_icon() -> QIcon:
-    """Render the app icon at runtime: a large pen drawing one red squiggle."""
+    """Load the editable SVG icon, falling back to the generated painter icon."""
+    svg_path = resource_path("assets", "write-or-die-icon.svg")
+    if os.path.exists(svg_path):
+        icon = QIcon(svg_path)
+        if not icon.isNull():
+            return icon
+
     pix = QPixmap(256, 256)
     pix.fill(Qt.transparent)
     p = QPainter(pix)

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 256 256"
+   width="256"
+   height="256"
+   role="img"
+   aria-labelledby="title desc"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="write-or-die-icon.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="swatch6"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#595959;stop-opacity:1;"
+         offset="0"
+         id="stop6" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.4355469"
+     inkscape:cx="94.737415"
+     inkscape:cy="154.9932"
+     inkscape:window-width="1680"
+     inkscape:window-height="979"
+     inkscape:window-x="-8"
+     inkscape:window-y="619"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <title
+     id="title">Write or Die icon</title>
+  <desc
+     id="desc">A dark rounded tile with a red writing squiggle, a large fountain pen, and a yellow caution triangle with a red exclamation mark.</desc>
+  <g
+     id="tile">
+    <rect
+       x="8"
+       y="8"
+       width="240"
+       height="240"
+       rx="48"
+       fill="#1e1e24"
+       id="rect1" />
+  </g>
+  <g
+     id="red-squiggle"
+     transform="matrix(1.1801242,-0.568677,0.12814222,1.8955756,20.799208,240.87632)">
+    <path
+       d="M 9.0767347,-12.659795 C 30.454711,-31.880483 46.290572,7.1761629 71.147795,-4.698816 94.08473,-15.65642 103.88566,19.455853 131.26102,4.3342765"
+       fill="none"
+       stroke="#ef4444"
+       stroke-width="16.8875"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       id="path1"
+       sodipodi:nodetypes="csc" />
+  </g>
+  <g
+     id="fountain-pen"
+     transform="rotate(45,-55.235904,324.11001)">
+    <rect
+       id="barrel"
+       x="-39.688866"
+       y="-122.0861"
+       width="68.838043"
+       height="174.51501"
+       rx="28.787422"
+       fill="#c7ccd6"
+       ry="63.740784"
+       transform="matrix(0.99995176,-0.00982273,-0.00508193,0.99998709,0,0)"
+       style="stroke-width:1.02812" />
+    <rect
+       id="grip-band"
+       x="-47.977787"
+       y="-15.365833"
+       width="83.773514"
+       height="28.943367"
+       rx="30.322716"
+       fill="#9aa1ad"
+       ry="10.794197"
+       transform="matrix(0.99975562,-0.02210672,0.01616391,0.99986936,0,0)"
+       style="stroke-width:0.972206" />
+    <path
+       id="nib"
+       d="M -48.280272,5.066667 35.741497,2.976871 -4.8761905,93.414966 Z"
+       fill="#e8eaef"
+       sodipodi:nodetypes="cccc" />
+    <line
+       id="nib-slit"
+       x1="-4.8761907"
+       y1="25.414967"
+       x2="-4.8761907"
+       y2="79.414963"
+       stroke="#1e1e24"
+       stroke-width="7"
+       stroke-linecap="round" />
+    <circle
+       id="breather-hole"
+       cx="-4.8761907"
+       cy="17.414967"
+       r="9"
+       fill="#1e1e24" />
+  </g>
+  <g
+     id="caution-badge"
+     transform="matrix(1.115732,0,0,1.115732,-22.896532,-0.33450049)">
+    <g
+       id="g6"
+       transform="matrix(1.3509805,0,0,1.3509805,-177.8217,-181.70054)">
+      <path
+         id="caution-triangle"
+         d="m 202,156 36,70 h -72 z"
+         fill="#facc15"
+         stroke="#1e1e24"
+         stroke-width="8"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         style="stroke:#595959;stroke-width:12;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+      <line
+         id="exclamation-stem"
+         x1="202"
+         y1="177"
+         x2="202"
+         y2="203"
+         stroke="#dc2626"
+         stroke-width="8"
+         stroke-linecap="round" />
+      <circle
+         id="exclamation-dot"
+         cx="202"
+         cy="215"
+         r="5"
+         fill="#dc2626" />
+    </g>
+  </g>
+</svg>
